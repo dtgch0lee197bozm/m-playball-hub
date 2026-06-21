@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>玩球直播 · 知识共享与内容指引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Times New Roman', 'Noto Serif SC', '宋体', Georgia, serif;
+      background: #faf8f2;
+      color: #2e2a24;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    /* 层级标题区 */
+    .site-header {
+      border-bottom: 1px solid #d9d2c5;
+      padding-bottom: 0.8rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .site-header h1 {
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #3f362c;
+    }
+    .site-header .tagline {
+      font-size: 0.95rem;
+      color: #7a6e5d;
+      font-style: italic;
+    }
+    /* 知识库目录卡片区 */
+    .intro-card {
+      background: #fffdf8;
+      border: 1px solid #e3dbcd;
+      border-radius: 14px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.4rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+    .intro-card p {
+      margin-bottom: 1.1rem;
+      font-size: 1.05rem;
+    }
+    .intro-card a {
+      color: #8b5f3c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c7b09a;
+      font-weight: 500;
+    }
+    .intro-card a:hover {
+      color: #533f2c;
+      text-decoration-color: #533f2c;
+    }
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 1.2rem;
+    }
+    .dir-item {
+      background: #f5efe6;
+      border-radius: 10px;
+      padding: 1.4rem 1.2rem;
+      border-left: 4px solid #b0947a;
+      transition: all 0.2s;
+    }
+    .dir-item:hover {
+      background: #efe6da;
+      transform: translateY(-2px);
+    }
+    .dir-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4b3f31;
+      margin-bottom: 0.4rem;
+    }
+    .dir-item p {
+      font-size: 0.92rem;
+      color: #5f5343;
+      line-height: 1.5;
+    }
+    .dir-item .badge {
+      display: inline-block;
+      background: #c8b7a4;
+      color: #2e2720;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+    .info-block {
+      background: #f2ece2;
+      padding: 1.6rem 2rem;
+      border-radius: 16px;
+      margin: 2.4rem 0 1.8rem;
+      border: 1px solid #dbd0c0;
+      position: relative;
+    }
+    .info-block::before {
+      content: "📘 主题说明";
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: #6b5d4b;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .info-block p {
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box {
+      background: #faf3e9;
+      border-left: 6px solid #b48c6e;
+      padding: 1rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 10px 10px 0;
+      font-style: normal;
+    }
+    .highlight-box strong {
+      color: #4f3f2d;
+    }
+    .faq-mini {
+      margin: 2rem 0;
+    }
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #ddd3c1;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: #3d352a;
+      margin-bottom: 0.2rem;
+    }
+    .faq-a {
+      color: #4b4135;
+      font-size: 0.96rem;
+      padding-left: 0.6rem;
+    }
+    .faq-a a {
+      color: #7f623f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .extra-note {
+      background: #fff9f0;
+      border: 1px solid #e2d5c4;
+      padding: 1.6rem 2rem;
+      border-radius: 14px;
+      margin-top: 2.2rem;
+    }
+    .extra-note p {
+      margin-bottom: 0.3rem;
+    }
+    .btn-subtle {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #b6a28d;
+      color: #3d352a;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: 0.2s;
+      margin-top: 0.6rem;
+    }
+    .btn-subtle:hover {
+      background: #dacfc0;
+      border-color: #8f7b66;
+    }
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd3c1;
+      font-size: 0.9rem;
+      color: #6f6452;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @media (max-width: 500px) {
+      body { padding: 1.2rem 1rem; }
+      .intro-card { padding: 1.4rem; }
+      .directory-grid { gap: 1rem; }
+      .info-block { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header class="site-header">
+    <h1>知识库 · 内容指引</h1>
+    <span class="tagline">基于主题的整理与启发</span>
+  </header>
+
+  <!-- 说明区 + 目录感布局 -->
+  <div class="intro-card">
+    <p>无论你是刚开始了解运动直播内容，还是希望系统梳理相关领域的信息脉络，这个页面都尝试以知识库的入口方式，为你提供结构化的参考。在这里，你可以了解某一关键词所延伸出的主题、使用场景以及常见问题。而提到实时互动与赛事内容，<a href="https://m-playball.com">玩球直播</a>便是许多爱好者获取动态信息、参与交流的一个选择。</p>
+    <p>下文围绕核心概念，以卡片目录、主题说明和提示区等形式，展示相关信息。内容保持中立，侧重知识传递与认知补充。</p>
+  </div>
+
+  <!-- 目录卡片区：类似知识库入口 -->
+  <div class="directory-grid">
+    <div class="dir-item">
+      <h3>主题脉络</h3>
+      <p>从赛事动态到社区讨论，梳理内容分类与常见关注点。</p>
+      <span class="badge">分类框架</span>
+    </div>
+    <div class="dir-item">
+      <h3>场景·用法</h3>
+      <p>个人观赛、信息获取、兴趣交流——不同场景下的内容形态。</p>
+      <span class="badge">使用参考</span>
+    </div>
+    <div class="dir-item">
+      <h3>术语·概念</h3>
+      <p>了解基本术语及直播互动中的常见表达，减少信息门槛。</p>
+      <span class="badge">入门词典</span>
+    </div>
+    <div class="dir-item">
+      <h3>相关延伸</h3>
+      <p>与运动直播生态相关的平台、社区及内容创作趋势。</p>
+      <span class="badge">周边信息</span>
+    </div>
+  </div>
+
+  <!-- 说明区：主题内容展开 -->
+  <div class="info-block">
+    <p>本知识库以“玩球直播”所涉及的主题内容为线索，而非具体产品功能。例如：实时讨论、赛事日程、球队数据、观众互动等，都是这一领域里常被提及的部分。很多用户通过直播平台获取即时画面，同时结合第二屏讨论或数据统计，形成更完整的观赛体验。</p>
+    <p>在信息呈现上，不妨把这类直播看作一个内容节点——它连接着赛事本身、解说分析、社区氛围和社交分享。你可以根据兴趣选择深入了解某一分支，也可以把不同板块的内容组合起来，构建自己的信息地图。</p>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="highlight-box">
+    <strong>💡 提示：</strong> 在浏览直播相关内容时，建议同时留意信息来源的时效性与平台规则。不同社区的文化和表达方式可能存在差异，保持开放心态有助于更好地融入讨论。如果你希望直接体验社区氛围，可以先行了解<a href="https://m-playball.com">玩球直播</a>的界面与常规内容。
+  </div>
+
+  <!-- FAQ 摘要区（相关信息区） -->
+  <div class="faq-mini">
+    <h2 style="font-size:1.2rem; font-weight:400; color:#4f4233; border-left:3px solid #b89f86; padding-left:0.8rem; margin-bottom:0.8rem;">常见话题摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q：怎样开始接触这类直播内容？</div>
+      <div class="faq-a">从你感兴趣的比赛或队伍入手，观察直播间的讨论氛围，慢慢就能熟悉常见的表达和互动方式。像<a href="https://m-playball.com">玩球直播</a>这样的平台也提供了分类入口，方便查找。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：直播内容是否包含实时数据？</div>
+      <div class="faq-a">部分直播会叠加实时数据或解说分析，但具体呈现方式因内容提供方而异。建议结合官方数据源交叉参考。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：如何辨别信息是否可靠？</div>
+      <div class="faq-a">留意直播间或讨论区的信息来源标注，尽量选择有信誉的创作者或机构。对于突发新闻，建议多方核实。</div>
+    </div>
+  </div>
+
+  <!-- 额外相关信息区 -->
+  <div class="extra-note">
+    <p style="font-weight:500; color:#4f3f2b;">🔍 相关信息延伸</p>
+    <p>除了实时直播，许多内容生态还包含赛后复盘、专题讨论、数据可视化等深度内容。如果你对某个主题产生持续兴趣，可以关注垂直社区或内容合集，逐步建立自己的知识体系。记住，直播只是信息流的一环，主动检索和整理能让你获得更多价值。</p>
+    <a href="#" class="btn-subtle" style="pointer-events:none; opacity:0.7;">（示意链接 · 非跳转）</a>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <span>知识库风格 · 内容整理</span>
+    <span>基于公开信息与主题梳理</span>
+  </footer>
+</div>
+</body>
+</html>
